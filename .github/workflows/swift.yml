@@ -23,8 +23,8 @@ jobs:
       - name: Build for Simulator
         run: |
           xcodebuild build \
-            -project YourProjectName.xcodeproj \
-            -scheme YourSchemeName \
+            -project RemoteRecruit.xcodeproj \
+            -scheme RemoteRecruit \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
             -configuration Debug \
