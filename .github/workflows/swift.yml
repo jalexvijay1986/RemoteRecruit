@@ -4,8 +4,11 @@
 name: Swift
 
 on:
+    branches:
+      - dev
   pull_request:
-    branches: [ "dev" ]
+    branches:
+      - dev
 
 jobs:
   build:
