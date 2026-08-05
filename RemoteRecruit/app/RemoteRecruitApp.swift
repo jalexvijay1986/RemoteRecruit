@@ -13,7 +13,7 @@ struct RemoteRecruitApp: App {
     
     var body: some Scene {
         WindowGroup {
-            JobListView(viewModel: viewModel)
+            JobListView(viewModel: viewModel, error:"")
         }
     }
 }
