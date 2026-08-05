@@ -22,19 +22,16 @@ jobs:
         run: |
           xcodebuild build \
             -project RemoteRecruit.xcodeproj \
-            -scheme RemoteRecruit \
+            -scheme RemoteRecruitTests \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
             -configuration Debug \
             COMPILER_INDEX_STORE_ENABLE=NO
           
-      - name: Test Build for Simulator
+      - name: Run iOS Tests 
         run: |
-          xcodebuild build \
+          xcodebuild test \
             -project RemoteRecruit.xcodeproj \
             -scheme RemoteRecruitTests \
-            -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
-            -configuration Debug \
-            COMPILER_INDEX_STORE_ENABLE=NO \
-            clean build test | xcbeautify
+            -quiet
