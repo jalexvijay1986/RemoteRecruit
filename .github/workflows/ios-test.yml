@@ -18,16 +18,6 @@ jobs:
           sudo xcode-select -s /Applications/Xcode_26.6.app/Contents/Developer
           xcodebuild -version
           
-      - name: Build for Simulator
-        run: |
-          xcodebuild build \
-            -project RemoteRecruit.xcodeproj \
-            -scheme RemoteRecruitTests \
-            -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
-            -configuration Debug \
-            COMPILER_INDEX_STORE_ENABLE=NO
-          
       - name: Run iOS Tests 
         run: |
           xcodebuild test \
