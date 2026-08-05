@@ -1,0 +1,27 @@
+name: iOS starter workflow
+
+on:
+  pull_request:
+    branches: [ "test" ]
+
+jobs:
+  build:
+    name: Build and Test iOS App in iPhone
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+        
+      - name: Set Xcode Version
+        run: |
+          sudo xcode-select -s /Applications/Xcode_26.6.app/Contents/Developer
+          xcodebuild -version
+          
+      - name: Run iOS Tests 
+        run: |
+          xcodebuild test \
+            -project RemoteRecruit.xcodeproj \
+            -scheme RemoteRecruitTests \
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
+            -quiet

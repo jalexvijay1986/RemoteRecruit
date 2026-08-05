@@ -31,7 +31,7 @@ class JobListViewModelTest: XCTestCase {
         await sut.fetchJobList()
         let jobs = await sut.jobs
         XCTAssertNotNil(jobs, "Jobs expected to be not nil")
-        XCTAssertGreaterThan(jobs.count, 0, "Jobs count expected to be more than 0")
+        XCTAssertGreaterThan(jobs.count, 0, "Jobs count is 0. But jobs count expected to be greater than 0.")
     }
     
     func testJobListViewModel_JobListLoadedWithError_JobListCountShouldBeZero() async {
@@ -39,6 +39,6 @@ class JobListViewModelTest: XCTestCase {
         await sut.fetchJobList()
         let jobs = await sut.jobs
         XCTAssertNotNil(jobs, "Jobs expected to be not nil")
-        XCTAssertEqual(jobs.count, 0, "Jobs count expected to be 0")
+        XCTAssertEqual(jobs.count, 0, "Jobs count is not equal to 0. But jobs count expected to be 0.")
     }
 }
