@@ -1,19 +1,17 @@
 name: iOS starter workflow
 
 on:
-  push:
-    branches: [ "dev" ]
   pull_request:
-    branches: [ "dev" ]
+    branches: [ "test" ]
 
 jobs:
   build:
-    name: Build iOS Simulator App
+    name: Build and Test iOS App in iPhone
     runs-on: macos-latest
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         
       - name: Set Xcode Version
         run: |
@@ -28,4 +26,15 @@ jobs:
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
             -configuration Debug \
+            COMPILER_INDEX_STORE_ENABLE=NO
+          
+      - name: Test Build for Simulator
+        run: |
+          xcodebuild build \
+            -project RemoteRecruit.xcodeproj \
+            -scheme RemoteRecruitTests \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
+            -configuration Debug \
+            clean build test | xcbeautify \
             COMPILER_INDEX_STORE_ENABLE=NO
