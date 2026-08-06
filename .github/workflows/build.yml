@@ -19,16 +19,12 @@ jobs:
           xcodebuild -version
          
       - name: Cache Swift Package Manager
-        uses: actions/cache@v4
+        uses: irgaly/xcode-cache@v1
         with:
-          path: | 
-            .build
-            ~/Library/Developer/Xcode/DerivedData/ModuleCache.noindex
-            ~/Library/Caches/org.swift.swiftpm
-            ~/Library/org.swift.swiftpm
-          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
-          restore-keys: |
-            ${{ runner.os }}-spm-
+          key: xcode-cache-deriveddata-${{ github.workflow }}-${{ github.sha }}
+          restore-keys: xcode-cache-deriveddata-${{ github.workflow }}-
+          deriveddata-directory: ~/Library/Developer/Xcode/DerivedData
+          sourcepackages-directory: ~/Library/Developer/Xcode/DerivedData/SourcePackages
 
       - name: Build for Simulator
         run: |
