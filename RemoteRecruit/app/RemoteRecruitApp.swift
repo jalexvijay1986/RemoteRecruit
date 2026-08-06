@@ -25,4 +25,5 @@ struct RemoteRecruitApp: App {
             JobListView(viewModel: viewModel)
         }
     }
+    
 }
