@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2E9DC9D430246F4F0045D9AF /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2E9DC9D330246F4F0045D9AF /* FirebaseCrashlytics */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		2ECAD3FE2FDFBCBD00A4591E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E9DC9D430246F4F0045D9AF /* FirebaseCrashlytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +111,7 @@
 			);
 			name = RemoteRecruit;
 			packageProductDependencies = (
+				2E9DC9D330246F4F0045D9AF /* FirebaseCrashlytics */,
 			);
 			productName = RemoteRecruit;
 			productReference = 2ECAD3F02FDFBCBB00A4591E /* RemoteRecruit.app */;
@@ -186,6 +192,9 @@
 			);
 			mainGroup = 2ECAD3E72FDFBCBB00A4591E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2E9DC9D230246F4F0045D9AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2ECAD3F12FDFBCBB00A4591E /* Products */;
 			projectDirPath = "";
@@ -593,6 +602,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2E9DC9D230246F4F0045D9AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.17.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2E9DC9D330246F4F0045D9AF /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E9DC9D230246F4F0045D9AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2ECAD3E82FDFBCBB00A4591E /* Project object */;
 }
