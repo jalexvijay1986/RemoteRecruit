@@ -17,7 +17,19 @@ jobs:
         run: |
           sudo xcode-select -s /Applications/Xcode_26.6.app/Contents/Developer
           xcodebuild -version
-          
+         
+      - name: Cache Swift Package Manager
+        users: actions/cache@v5
+        with:
+          path: | 
+            .build
+            ~/Library/Developer/Xcode/DerivedData/ModuleCache.noindex
+            ~/Library/Caches/org.swift.swiftpm
+            ~/Library/org.swift.swiftpm
+          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-spm-
+
       - name: Build for Simulator
         run: |
           xcodebuild build \
